@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;1,200&display=swap');
+
+.App {
+  width: 100vw;
+  height: 70vh;
+  /* background-color: none; */
+  font-family: 'Fira Sans',cursive;
+  font-weight: bold;
+
+}
+
+.App-header {
+  text-transform: none;
+  font-size: 90px;
+  margin: 30px 0;
+  margin-top:100px;
+  color: #62a94a;
+  z-index: 1;
+  text-align: center;
+}
+
+@media (max-width: 2000px){
+  .App-header{
+    margin: 15px 0;
+    font-size: 35px;
+  }
+}
+
+button, DropDown {
+  display: block;
+}
+
+/* svg {
+  margin-top:-180px;
+  rotate: -45deg;
+  margin-left: 250px;
+} */
+
+/* path {
+  fill: #62a94a;
+} */
+
+.header {
+  margin-top: -500px;
+  font-size: 20px;
+  margin-left: 20px;
+  font-family: 'Fira Sans',cursive;
+  font-weight: bold;
+}
+
+.submit-tab2{
+  margin-top: 20px;
+  width: 70%;
+}
+
+.welcome-text{
+  font-size: 24px;
+}
+
+.p_tabs {
+  /* color: #488f31; */
+  font-family: 'Fira Sans',cursive;
+  font-size: 20px;
+}
+
+.h3_tabs {
+  /* margin-bottom: 5px; */
+  color: #488f31;
+  /* font-family: 'Fira Sans',cursive; */
+  font-size: 30px;
+  /* font-weight: bold; */
+}
+
+.welcome-text{
+  /* position: fixed;
+  margin-top: 5%;
+  margin-left: 25%; */
+  text-align: center;
+}
+
+.App-header{
+  background-image: url("/public/background.jpeg");
+  background-color: #ffd58f58;
+  margin: 0px;
+  color: white;
+  width  : 100%;
+  font-size: 64px;
+  font-weight: bold;
+  /* height : 120px; */
+  stroke          : black;
+  stroke-width    : .5px; 
+  stroke-linejoin : round;
+  /* font: 800 40px Arial; */
+  /* -webkit-text-fill-color: transparent; */
+  -webkit-text-stroke: 1px;
+  text-shadow: -4px -4px 4px #030, 4px -4px 4px #030, -4px 4px 4px #030, 4px 4px 4px #030;
+}
+
+.nav-b{
+  width:9.9%;
+  padding:0px;
+  margin:0px;
+  position: inherit;
+  height:1150px
+}
+
+.w3-bar-item{
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+/* .tabs-component{
+  float:left
+} */
+
+/* .w3-row{
+  border:0px;
+  margin:0px;
+  padding:0px;
+} */
+
+.content-right{
+  width:90%;
+}
+
+.select_region{
+  width:70%;
+  margin-bottom: 20px;
+}
+
+.select_region_size{
+  width:100%
+}
+
+
+/* hr{
+  border: 1px solid #bcdeb0;
+} */
+
+/* .check-box-wrapper{
+  
+} */
+
+/* .checkerslist{
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.labels{
+  
+  flex: 0 0 50%;
+} */
+
+#map{
+  margin-left: -200px;
+  margin-top: -40px;
+  width :1000px;
+}
+
+.home{
+  /* margin-top: 25%;
+  margin-left: 25%; */
+}
+
+.checker{
+  float:left;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.submit-button{
+  margin-top: 20px;
+  width: 70%;
+}
+
+.welcome-button{
+  /* position: fixed; */
+}
+
+/* Plots css */
+/* path{
+  fill: #dcdcdc;
+} */
+
+#plotcontainer{
+  width: 100%;
+  height: 100px;
+  float: left;
+}
+
+.close-button{
+  float: right;
+  color: #fff;
+}
+
+#background{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -5;
+}
+
+canvas{
+  z-index: 1;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+
+.w3-dropdown-content{
+  overflow-x: hidden;
+  max-height: 300px;
+}
+
+.info {
+  font-size: 14px;
+  display: inline-block;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.Welcome-header{
+  font-size: 45px;
+}
+
+.box-tt{
+  width:200px;
+  height:100px;
+  fill:blue;
+  stroke:pink;
+  z-index: 5000;
+}
