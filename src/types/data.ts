@@ -1,89 +1,87 @@
-export interface DataPoint {
-    X1: number;
-    X2: number;
-    cluster: string
+import axios from 'axios';
+import { DataArray, QualityArray, ScatterArray, PredictionArray, ShapArray } from '../../types/data';
+
+// Create an Axios instance with the backend base URL
+const axiosClient = axios.create({
+  baseURL: process.env.REACT_APP_API_URL || 'https://chicago-urban-planning-dashboard.onrender.com', // Use the backend URL from .env or default
+});
+
+// Fetch data points from the backend based on the provided ID
+export function postPoints(id: string): Promise<DataArray | undefined> {
+  const url = `/data/${id}`; // API endpoint for data points
+  return axiosClient.get<DataArray>(url)
+    .then((res) => {
+      if (res.status !== 204) {
+        return res.data; // Return the data if the response is valid
+      }
+      return undefined;
+    })
+    .catch((error) => {
+      console.error('Error fetching data points:', error); // Log any errors
+      return undefined;
+    });
 }
 
-export type DataArray = DataPoint[];
-
-
-export interface QualityD{
-    "Community": string;
-    "GEOID": number;
-    "Longitude": number;
-    "Latitude": number;
-    "UNS_2015-2019": number;
-    "CZH_2017": number;
-    "CZM_2017": number;
-    "CZR_2017": number;
-    "CZS_2017": number;
-    "CZV_2017": number;
-    "TRF_2017": number;
-    "CCG_2015-2019": number;
-    "CCR_2015-2019": number;
-    "HCSATHP_2015-2017": number;
-    "HCSDIAP_2015-2017": number;
-    "HCSHYTP_2015-2017": number;
-    "HCSOBP_2015-2017": number;
-    "HCSOHSP_2015-2017": number;
-    "HCSNSP_2015-2017": number;
-    "EDB_2015-2019": number;
-    "UMP_2015-2019": number;
-    "POV_2015-2019": number;
-    // "HCSBD_2015-2017": number;
-    "HCSFVP_2015-2017": number;
-    "HCSPAP_2015-2017": number;
-    "HCSSP_2015-2017": number;
-    "VRDIDR_2015-2019": number;
-    "VRDO_2015-2019": number;
-    "VRSUR_2015-2019": number;
-    "VRCAR_2015-2019": number;
-    "VRSTR_2015-2019": number;
-    "VRLE_2017": number;
-    "POP_2015-2019": number;
-    "CZD_2017": number;
-    "PARK_COUNT": number;
-    "CLUSTER_LABEL": number;
-    "PCA_0": number;
-    "PCA_1": number;
+// Fetch quality data from the backend
+export function getQualityData(): Promise<QualityArray | undefined> {
+  const url = '/data/quality'; // API endpoint for quality data
+  return axiosClient.get<QualityArray>(url)
+    .then((res) => {
+      if (res.status !== 204) {
+        return res.data;
+      }
+      return undefined;
+    })
+    .catch((error) => {
+      console.error('Error fetching quality data:', error);
+      return undefined;
+    });
 }
 
-export type QualityArray = QualityD[]
-
-
-export interface FeatureD{
-    type: string;
-    features: [{
-        type: string;
-        properties: {};
-        geometry: {};
-    }];
+// Fetch scatter plot data
+export function getScatterData(): Promise<ScatterArray | undefined> {
+  const url = '/data/scatter'; // API endpoint for scatter data
+  return axiosClient.get<ScatterArray>(url)
+    .then((res) => {
+      if (res.status !== 204) {
+        return res.data;
+      }
+      return undefined;
+    })
+    .catch((error) => {
+      console.error('Error fetching scatter data:', error);
+      return undefined;
+    });
 }
 
-export interface ScatterD{ 
-    value: number;
-    feature: string;
-    years: number;
-    park: string;
-    lifeExpectancy: number,
-    numberOfParks: number,
-    trafficIntensity: number
-};
-   
-export type ScatterArray = ScatterD[]
-
-export interface PredD{
-    value: string;
-   
+// Fetch prediction data
+export function getPrediction(): Promise<PredictionArray | undefined> {
+  const url = '/data/model'; // API endpoint for predictions
+  return axiosClient.get<PredictionArray>(url)
+    .then((res) => {
+      if (res.status !== 204) {
+        return res.data;
+      }
+      return undefined;
+    })
+    .catch((error) => {
+      console.error('Error fetching predictions:', error);
+      return undefined;
+    });
 }
 
-export type PredictionArray = PredD[]
-
-export interface ShapD{
-    feature: string;
-    shapval: number;
-   
+// Fetch SHAP values from the backend
+export function getShapValues(): Promise<ShapArray | undefined> {
+  const url = '/data/model/shap_values'; // API endpoint for SHAP values
+  return axiosClient.get<ShapArray>(url)
+    .then((res) => {
+      if (res.status !== 204) {
+        return res.data;
+      }
+      return undefined;
+    })
+    .catch((error) => {
+      console.error('Error fetching SHAP values:', error);
+      return undefined;
+    });
 }
-
-export type ShapArray = ShapD[]
-
